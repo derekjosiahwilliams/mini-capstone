@@ -1,8 +1,15 @@
 <h2> <%= @products.name %></h2>
+  <% if @products.discounted? %>
+    <h4 class="discount-item">Discounted Dragon!</h4>
+  <% else %>
+    <h4>Everyday Value</h4>
+  <% end %>
   <p><%= @products.price %></p>
   <p><%= @products.element %></p>
   <p><%= @products.description %></p>
   <p><%= @products.sale_message %></p>
+  <p>Tax:<%= @products.tax %></p>
+  <p>Total:<%= @products.total %></p>
   <img src="<%= @products.image %>" width="425">
   <br>
   

@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
   def edit
     dragons_id = params[:id]
     @product = Product.find_by(id: dragons_id)
-    product.save
     render "edit.html.erb"
   end
 
@@ -37,7 +36,7 @@ class ProductsController < ApplicationController
     @product.description = params[:form_description]
     @product.save
     flash[:success] = "Dragon Improved!"
-    redirect_to "/dragons/#{@dragons.id}"
+    redirect_to "/dragons"
   end
 
   def destory
