@@ -1,7 +1,16 @@
 <h1>All Dragons</h1>
-<% @products.each do |product| %>
-  <h2> <%= product.name %></h2>
-  <p><%= product.price %></p>
-  <p><%= product.element %></p>
-  <p><%= product.description %></p>
-<% end %>
+<% @products.each_slice(3) do |three_products| %>
+  <div class="row">
+      <% three_products.each do |product| %>
+       <div class="col-md-4">
+         <div class="well"  
+          <h2> <%= product.name %></h2>
+          <p><%= product.price %></p>
+          <p><%= product.element %></p>
+          <p><%= product.description %></p>
+          <img src= "<%= product.image %>" width="350">
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

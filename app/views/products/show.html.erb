@@ -1,0 +1,13 @@
+<h2> <%= @products.name %></h2>
+  <p><%= @products.price %></p>
+  <p><%= @products.element %></p>
+  <p><%= @products.description %></p>
+  <img src="<%= @products.image %>" width="425">
+  <br>
+  
+  <a href="/dragons">Back to Home Page</a>
+  <br>
+   <a href="/dragons/<%= @products.id %>/edit">Edit This Dragon</a>
+  <%= form_tag "/dragons/#{@products.id}", method: "delete" do %>
+    <input type="submit" value="Become a Murderer">
+  <% end %>
