@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
   def sale_message
-    if price.to_i < 340000 
+    if price < 340000 
       return "Low priced dragon. May be harder to train."
     else
       return "High priced dragon. Tends to be easier to train."
@@ -17,6 +17,6 @@ class Product < ApplicationRecord
   end
 
   def discounted?
-    price.to_f < 340000
+    price < 340000
   end
 end
