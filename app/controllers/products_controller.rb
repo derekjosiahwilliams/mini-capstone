@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   def edit
     dragons_id = params[:id]
     @product = Product.find_by(id: dragons_id)
+    @product.save
     render "edit.html.erb"
   end
 
@@ -34,6 +35,7 @@ class ProductsController < ApplicationController
     @product.price = params[:form_price]
     @product.element = params[:form_element]
     @product.description = params[:form_description]
+    @product.image = params[:form_image]
     @product.save
     flash[:success] = "Dragon Improved!"
     redirect_to "/dragons"
@@ -43,7 +45,8 @@ class ProductsController < ApplicationController
     dragons_id = params[:id]
     @product = Product.find_by(id: dragons_id)
     @product.destroy
-    render "destory.html.erb"
+    flash[:success] = "Dragon Deported to Sky-Care!"
+    redirect_to "/dragons"
   end
 
 end

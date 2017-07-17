@@ -3,13 +3,12 @@
   <div class="row">
       <% three_products.each do |product| %>
        <div class="col-md-4">
-         <div class="well"  
-          <h2> <%= product.name %></h2>
+         <div class="well">  
           <h2><a href="/dragons/<%= product.id %>"><%= product.name %></a></h2>
           <p><%= product.price %></p>
           <p><%= product.element %></p>
           <p><%= product.description %></p>
-          <img src= "<%= product.image %>" width="350">
+          <img src= "<%= product.image %>">
         </div>
       </div>
     <% end %>

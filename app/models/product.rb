@@ -17,6 +17,6 @@ class Product < ApplicationRecord
   end
 
   def discounted?
-    price < 340000
+    price > 340000
   end
 end
