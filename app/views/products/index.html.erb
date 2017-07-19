@@ -5,9 +5,9 @@
        <div class="col-md-4">
          <div class="well">  
           <h2><a href="/dragons/<%= product.id %>"><%= product.name %></a></h2>
-          <p><%= product.price %></p>
-          <p><%= product.element %></p>
-          <p><%= product.description %></p>
+          <p><b>Price:</b> <%= number_to_currency(product.price) %></p>
+          <p><b>Element:</b> <%= product.element %></p>
+          <p><b>Description:</b> <%= product.description %></p>
           <img src= "<%= product.image %>">
         </div>
       </div>

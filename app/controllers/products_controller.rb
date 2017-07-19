@@ -1,6 +1,18 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    sort_attribute = params[:sort_by]
+    if sort_attribute
+      @products = Product.all.order(sort_attribute)
+    else 
+      @products = Product.all
+    end
+    # if 
+    #   @products = Product.all.order(:price => :desc)
+    # else
+    #   @products = Product.all
+    # if
+    #   @products = Product.all.where(price < ?, 340000)
+    # end
     render "index.html.erb"
   end
 
@@ -49,4 +61,9 @@ class ProductsController < ApplicationController
     redirect_to "/dragons"
   end
 
+  def search
+    search = params[:search_term]
+    @products = Product.all.where("name ILIKE ?", "%" + search + "%")
+    render "index.html.erb"
+  end
 end
