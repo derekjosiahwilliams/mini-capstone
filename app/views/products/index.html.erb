@@ -5,10 +5,10 @@
        <div class="col-md-4">
          <div class="well">  
           <h2><a href="/dragons/<%= product.id %>"><%= product.name %></a></h2>
-          <p><b>Price:</b> <%= number_to_currency(product.price) %></p>
-          <p><b>Element:</b> <%= product.element %></p>
-          <p><b>Description:</b> <%= product.description %></p>
-          <img src= "<%= product.image %>">
+          <p><font color="black"><b>Price:</b> <%= number_to_currency(product.price) %></font></p>
+          <p><font color="black"><b>Element:</b> <%= product.element %></font></p>
+          <p><font color="black"><b>Description:</b> <%= product.description %></font></p>
+          <img src= "<%= product.images.first.url %>">
         </div>
       </div>
     <% end %>
