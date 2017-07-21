@@ -31,7 +31,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Us and Dragon info <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">What We Do</a></li>
-                <li><a href="#">Why Dragons?</a></li>
+                <li><a href="#">Why Dragons</a></li>
                 <li><a href="#">Dragon and Human History</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Sky-Center:Home For The Dragons</a></li>
@@ -47,9 +47,12 @@
             <button type="submit" class="btn btn-default">Submit</button>
           <% end %>
           <ul class="nav navbar-nav navbar-right">
+          <% if current_user !=nil %>
+            <li><a href="/logout">Log Out</a></li>
+          <% else %>
             <li><a href="/signup">Sign Up</a></li>
             <li><a href="/login">Log In</a></li>
-            <li><a href="/logout">Log Out</a></li>
+          <% end %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">

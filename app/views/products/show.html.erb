@@ -17,5 +17,5 @@
   <br>
    <a href="/dragons/<%= @products.id %>/edit">Edit This Dragon</a>
   <%= form_tag "/dragons/#{@products.id}", method: "delete" do %>
-    <input type="submit" value="Become a Murderer">
+    <input type="submit" value="Become a Murderer..." class="btn btn-default">
   <% end %>
