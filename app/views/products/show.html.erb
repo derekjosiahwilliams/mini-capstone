@@ -13,9 +13,19 @@
   <p>Total:<%= number_to_currency(@products.total) %></p>
   <br>
   <img src= "<%= @products.images.first.url %>">
+  <br>
   <a href="/dragons">Back to Home Page</a>
   <br>
    <a href="/dragons/<%= @products.id %>/edit">Edit This Dragon</a>
   <%= form_tag "/dragons/#{@products.id}", method: "delete" do %>
-    <input type="submit" value="Become a Murderer..." class="btn btn-default">
+  <% end %>
+
+  <%= form_tag "/carted_products", method: "post" do %>
+  <div>
+    Quantity: <input type="text" name="form_quantity" style="color: black">
+  </div>
+  <div>
+    <input type="hidden" value="<%= @products.id %>" class="btn btn-default" name="form_product_id">
+  </div>
+  <input type="submit" class="btn btn-default" value="Add to Cart!">
   <% end %>

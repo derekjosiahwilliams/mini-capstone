@@ -1,0 +1,14 @@
+<h2>Purchase Information</h2>
+
+
+<% @carted_products.each do |carted_product| %>
+
+<p>Email: <%= carted_product.user.email %></p>
+<p>Product name: <%= carted_product.product.name %></p>
+<img src="<%= carted_product.product.images.first.url %>" alt="">
+<p>quantity: <%= carted_product.quantity %></p>
+<% end %>
+
+<%= form_tag "/orders", method: "post" do %>
+  <input type="submit" class="btn btn-default" value="Buy Now!">
+<% end %>
