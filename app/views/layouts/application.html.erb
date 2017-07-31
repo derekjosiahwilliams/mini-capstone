@@ -25,7 +25,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/dragons/new">Breed Your Dragon<span class="sr-only">(current)</span></a></li>
+          <% if current_user && current_user.admin %>
+            <li class="active"><a href="/dragons/new">Breed Your Dragon<span class="sr-only">
+            (current)</span></a></li>
+            <% end %>
             <li><a href="#">Link</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Us and Dragon info <span class="caret"></span></a>
@@ -56,6 +59,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
+              <li><a href="/carted_products"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping cart</a></li>
+             <li class="divider"></li>
                 <li><a href="/dragons?input_sort_attribute=price&input_sort_order=asc">Sort by price ascending</a></li>
                 <li><a href="/dragons?input_only_discounted=true">Highest to Lowest</a></li>
                 <li><a href="/dragons?input_sort_attribute=price&input_sort_order=desc">Sort by price descending</a></li>

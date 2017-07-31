@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
+
   def index
     sort_attribute = params[:sort_by]
     if sort_attribute
@@ -27,7 +29,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(name: params[:form_name], price: params[:form_price], element: params[:form_element], description: params[:form_description], image: params[:form_image])
+    unless current_user && current_user.admin
+      redirect_to "/"
+      return
+    end
+    product = Product.new(name: params[:form_name], price: params[:form_price], element: params[:form_element], description: params[:form_description])
+    # if params[:form_image]
+    #   Image.create(url: params[:form_image])
+    # end
     product.save
     flash[:success] = "A Dragon has been born!"
     redirect_to "/dragons/#{product.id}"

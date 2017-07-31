@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   def create
-    @carted_products = CartedProduct.where(user_id: current_user.id, status: "carted")
+    carted_products = CartedProduct.where(user_id: current_user.id, status: "carted")
 
     order = Order.new(
       user_id: current_user.id,
     )
-    CartedProduct.calculate_subtotal_tax_and_total
     order.save
     flash[:success] = "A Dragon Has Joined The Family!"
     redirect_to "/orders/#{order.id}"

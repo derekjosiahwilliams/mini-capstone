@@ -1,8 +1,14 @@
 class CartedProductsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @carted_products = CartedProduct.all
-    # @carted_product = CartedProduct.first
-    render "index.html.erb"
+    @carted_products = current_user.carted_product
+    if @carted_products.length > 0
+      render "index.html.erb"
+    else
+      flash[:warning] = "No Dragon in cart! Buy stuff now!"
+      redirect_to "/"
+    end
   end
 
   def create

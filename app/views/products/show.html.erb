@@ -16,8 +16,10 @@
   <br>
   <a href="/dragons">Back to Home Page</a>
   <br>
-   <a href="/dragons/<%= @products.id %>/edit">Edit This Dragon</a>
-  <%= form_tag "/dragons/#{@products.id}", method: "delete" do %>
+    <% if current_user && current_user.admin %>
+     <a href="/dragons/<%= @products.id %>/edit">Edit This Dragon</a>
+    <%= form_tag "/dragons/#{@products.id}", method: "delete" do %>
+    <% end %>
   <% end %>
 
   <%= form_tag "/carted_products", method: "post" do %>
